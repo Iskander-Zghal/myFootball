@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyFootball</string>
+    <string name="search_league">Recherche par ligue</string>
+    <string name="error_msg">une erreur est survenue</string>
+</resources>
