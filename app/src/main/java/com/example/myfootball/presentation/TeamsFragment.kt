@@ -12,7 +12,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import com.example.myfootball.R
 import com.example.myfootball.databinding.FragmentTeamsBinding
 import com.example.myfootball.presentation.adapter.TeamsAdapter
@@ -32,8 +31,6 @@ class TeamsFragment : Fragment(R.layout.fragment_teams) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         teamsViewModel.fetchLeagues()
-        val layoutManager = GridLayoutManager(requireContext(), 2)
-        binding.teamsRecyclerView.layoutManager = layoutManager
         binding.teamsRecyclerView.adapter = teamsAdapter
         initObservers()
         with(binding) {
