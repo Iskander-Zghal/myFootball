@@ -6,6 +6,7 @@ import com.example.myfootball.data.remote.ApiService
 import com.example.myfootball.domain.repository.TeamsRepository
 import com.example.myfootball.util.Result
 import javax.inject.Inject
+import kotlin.math.roundToInt
 
 class TeamsRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
@@ -15,9 +16,10 @@ class TeamsRepositoryImpl @Inject constructor(
         return try {
             val teamResponse = apiService.getAllTeamsByLeague(league)
             if (teamResponse.teams.isNotEmpty()) {
-                Result.Success(
-                    teamMapper.transformTeamsResponseToTeam(teamResponse)
-                        .sortedByDescending { it.nameTeam })
+
+                val teams = teamMapper.transformTeamsResponseToTeam(teamResponse)
+                    .sortedByDescending { it.nameTeam }
+                Result.Success(teams.subList(0, (teams.size / 2).toFloat().roundToInt()))
             } else Result.Error("No results found.")
         } catch (e: Exception) {
             Result.Error(e.localizedMessage ?: "An error occurred.")

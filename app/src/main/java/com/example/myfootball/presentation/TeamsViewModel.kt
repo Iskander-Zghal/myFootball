@@ -39,7 +39,7 @@ class TeamsViewModel @Inject constructor(
 
     suspend fun getAllLeagues() = leagueIntercator.getAllLeaguesName()
 
-    fun fetchTeams(teamName: String) = viewModelScope.launch {
+    fun fetchTeams(teamName: String) = viewModelScope.launch(dispatcher) {
         when (val teams = teamsIntercator.fetchTeamsByLeague(league = teamName)) {
             is Result.Success -> {
                 _teamsViewState.value = Ready(
@@ -53,7 +53,7 @@ class TeamsViewModel @Inject constructor(
     }
 
     fun getTeamDetails(teamName: String) {
-        viewModelScope.launch {
+        viewModelScope.launch(dispatcher) {
             when (val teamsDetails =
                 teamsDetailsIntercator.fetchTeamDetails(teamDetails = teamName)) {
                 is Result.Success -> {
