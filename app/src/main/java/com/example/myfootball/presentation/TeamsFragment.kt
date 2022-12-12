@@ -71,6 +71,7 @@ class TeamsFragment : Fragment(R.layout.fragment_teams) {
                             teamsAdapter.submitList(state.data)
                         }
                         is TeamsViewState.Empty -> {
+                            binding.teamsRecyclerView.isVisible = false
                             binding.animView.isVisible = true
                             binding.textViewError.isVisible = true
                         }
