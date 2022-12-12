@@ -62,10 +62,6 @@
         android:adjustViewBounds="true"
         android:maxHeight="400dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/CountyTextView"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/loading"
@@ -89,21 +85,6 @@
         app:lottie_rawRes="@raw/error"
         tools:src="@drawable/ic_launcher_background" />
 
-    <TextView
-        android:id="@+id/text_view_error"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/error_msg"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/black"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/animError"
-        tools:visibility="visible" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -118,6 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_not_found"
+                android:contentDescription="TODO"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -127,32 +109,32 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="@string/app_name"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/BannerImageView" />
+                app:layout_constraintTop_toBottomOf="@+id/BannerImageView"
+                tools:text="@string/app_name" />
 
             <TextView
                 android:id="@+id/LeagueNameTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/app_name"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/CountyTextView" />
+                app:layout_constraintTop_toBottomOf="@+id/CountyTextView"
+                tools:text="@string/app_name" />
 
             <TextView
                 android:id="@+id/DescriptionTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/app_name"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/LeagueNameTextView" />
+                app:layout_constraintTop_toBottomOf="@+id/LeagueNameTextView"
+                tools:text="@string/app_name" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

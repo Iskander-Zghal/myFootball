@@ -46,7 +46,6 @@ class TeamsDetailsFragment : Fragment(R.layout.fragment_teams_details) {
                         }
                         is TeamDetailsViewState.Empty -> {
                             binding.animError.isVisible = true
-                            binding.textViewError.isVisible = true
                         }
                     }
                 }

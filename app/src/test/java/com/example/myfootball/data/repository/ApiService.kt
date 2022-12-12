@@ -39,15 +39,12 @@ internal class ApiServiceTest {
     fun setUp() {
         Dispatchers.setMain(mainDispatcher)
         server = MockWebServer()
-        apiService = Retrofit.Builder()
-            .baseUrl(server.url(""))//We will use MockWebServers url
+        apiService = Retrofit.Builder().baseUrl(server.url(""))//We will use MockWebServers url
             .addConverterFactory(
                 MoshiConverterFactory.create(
                     Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
                 )
-            )
-            .build()
-            .create(ApiService::class.java)
+            ).build().create(ApiService::class.java)
     }
 
     @AfterEach
