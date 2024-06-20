@@ -2,4 +2,6 @@
     <string name="app_name">MyFootball</string>
     <string name="search_league">Rechercher par ligue</string>
     <string name="error_msg">une erreur est survenue</string>
+    <string name="team_league">League : %s</string>
+    <string name="team_description">Description : %s</string>
 </resources>

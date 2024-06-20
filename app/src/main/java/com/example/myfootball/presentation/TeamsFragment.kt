@@ -35,9 +35,7 @@ class TeamsFragment : Fragment(R.layout.fragment_teams) {
         initObservers()
         with(binding) {
             search.setOnClickListener {
-                if (autoCompleteTextView.text.isNullOrEmpty()
-                        .not() && autoCompleteTextView.text.length > 2
-                ) {
+                if (autoCompleteTextView.text.isNullOrEmpty().not() && autoCompleteTextView.text.length > 2) {
                     teamsViewModel.fetchTeams(teamName = binding.autoCompleteTextView.text.toString())
                 }
             }

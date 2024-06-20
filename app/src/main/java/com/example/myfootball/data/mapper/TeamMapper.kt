@@ -11,10 +11,10 @@ class TeamMapper @Inject constructor() {
                 idTeam = it.idTeam,
                 nameTeam = it.strTeam,
                 league = it.strLeague,
-                badge = it.strTeamBadge,
-                descriptionFR = it.strDescriptionFR ?: "",
+                badge = it.strTeamBadge.orEmpty(),
+                descriptionFR = it.strDescriptionFR.orEmpty(),
                 country = it.strCountry,
-                banner = it.strTeamBanner ?: ""
+                banner = it.strTeamBanner.orEmpty()
             )
         }
 }

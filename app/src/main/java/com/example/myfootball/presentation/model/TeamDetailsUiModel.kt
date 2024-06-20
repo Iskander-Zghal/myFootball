@@ -2,16 +2,16 @@ package com.example.myfootball.presentation.model
 
 
 sealed class TeamDetailsViewState {
-    object Idle : TeamDetailsViewState()
+    data object Idle : TeamDetailsViewState()
     data class Ready(val data: TeamDetailsUiModel) : TeamDetailsViewState()
-    object Empty : TeamDetailsViewState()
+    data object Empty : TeamDetailsViewState()
 }
 
 data class TeamDetailsUiModel(
-    val teamName: String,
-    val countryName: String,
-    val leagueName: String,
-    val descriptionTeam: String,
-    val bannerImage: String
+    val teamName: String? = null,
+    val countryName: String? = null,
+    val leagueName: String? = null,
+    val descriptionTeam: String? = null,
+    val bannerImage: String? = null,
 )
 

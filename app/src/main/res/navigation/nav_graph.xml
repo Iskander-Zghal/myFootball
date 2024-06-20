@@ -14,7 +14,6 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragmentDetails"
-        android:name="com.example.myfootball.presentation.TeamsDetailsFragment"
-        tools:layout="@layout/fragment_teams_details" />
+        android:name="com.example.myfootball.presentation.TeamsDetailsFragment" />
 
 </navigation>
