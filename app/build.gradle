@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace 'com.example.myfootball'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.myfootball"
         minSdk 23
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -35,29 +35,38 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_11
     }
+
     buildFeatures {
         viewBinding = true
         dataBinding = true
+        compose = true
     }
-    tasks.withType(Test) {
-        useJUnitPlatform()
+    tasks.withType(Test).tap {
+        configureEach {
+            useJUnitPlatform()
+        }
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_compose_compiler_version
     }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.2'
 
     // RETROFIT
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
@@ -72,8 +81,9 @@ dependencies {
 
     // HILT
     implementation "com.google.dagger:hilt-android:$hiltVersion"
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.7'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.7'
+    implementation 'androidx.compose.ui:ui-android:1.6.8'
     testImplementation 'org.junit.jupiter:junit-jupiter'
     kapt "com.google.dagger:hilt-compiler:$hiltVersion"
 
@@ -91,6 +101,20 @@ dependencies {
 
     // animation
     implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    // Compose
+    // Compose
+    implementation "androidx.activity:activity-compose:$compose_activity_compose"
+    implementation "androidx.compose.material:material:$compose_material"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_compose"
+    implementation "androidx.compose.ui:ui:$compose_compose"
+    implementation "androidx.compose.ui:ui-tooling:$compose_compose"
+    implementation "androidx.compose.foundation:foundation:$compose_compose"
+    implementation "androidx.compose.material3:material3:$compose_material_3"
+    implementation "io.coil-kt:coil-compose:$compose_coil"
+    implementation "androidx.lifecycle:lifecycle-runtime-compose:$compose_lifecycle_runtime"
+    implementation "androidx.navigation:navigation-runtime-ktx:$compose_navigation"
+    implementation "androidx.navigation:navigation-compose:$compose_navigation"
 
     // TEST
     testImplementation "org.junit.jupiter:junit-jupiter-api:$junit5Version"
